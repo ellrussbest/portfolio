@@ -8,10 +8,10 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+      screens: {
+        xd: { max: "1080px" },
+        xs: { max: "767px" },
+      }
     },
   },
   plugins: [],
