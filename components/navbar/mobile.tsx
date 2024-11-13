@@ -78,6 +78,7 @@ export default function MobileNav() {
 
           <Link
             href="/hire"
+            onClick={() => set_phone_menu_clicked()}
             className="shadow-[0_0_0_1px_rgba(255,77,77,1)] cursor-pointer tracking-[.04rem] text-white bg-[#0000] p-[.5rem_1.25rem_.35rem] text-[1rem] text-center font-[family-name:var(--font-input-sans)] font-normal hover:opacity-60 hover:outline-0 rounded-[.25rem]"
           >
             Hire Me
