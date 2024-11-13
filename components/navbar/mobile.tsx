@@ -5,6 +5,7 @@ import HambugerMenu from "../hambuger_menu";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function MobileNav() {
   const { phoneMenuClicked, set_phone_menu_clicked } = use_hambuger_store();
@@ -20,7 +21,7 @@ export default function MobileNav() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [phoneMenuClicked]);
+  }, [phoneMenuClicked, set_phone_menu_clicked]);
 
   return (
     <div className="xd:flex hidden">
@@ -68,12 +69,12 @@ export default function MobileNav() {
         </div>
 
         <div className="flex-col items-stretch mt-[1.5rem] ml-0 gap-x-[1rem] gap-y-[1rem] flex">
-          <div className="shadow-[0_0_0_1px_rgba(255,255,255,1)] justify-center flex cursor-pointer tracking-[.04rem] text-white bg-[#0000] p-[.5rem_1.25rem_.35rem] text-[1rem] text-center font-[family-name:var(--font-input-sans)] font-normal transition ease-in-out duration-200 hover:opacity-60 rounded-[.25rem]">
+          <motion.div whileHover={{scale: 1.02}} className="shadow-[0_0_0_1px_rgba(255,255,255,1)] justify-center flex cursor-pointer tracking-[.04rem] text-white bg-[#0000] p-[.5rem_1.25rem_.35rem] text-[1rem] text-center font-[family-name:var(--font-input-sans)] font-normal transition ease-in-out duration-200 hover:opacity-60 rounded-[.25rem]">
             Download CV
             <span className="ml-4">
               <Image src="/icons/download.svg" width={20} height={20} alt="" />
             </span>
-          </div>
+          </motion.div>
 
           <Link
             href="/hire"
