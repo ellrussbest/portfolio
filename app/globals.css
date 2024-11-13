@@ -10,7 +10,9 @@ html {
 }
 
 a {
-  transition: transform .2s, opacity .2s, border-color .2s ease-in-out, color .2s ease-in-out, background-color .2s ease-in-out, opacity .2s ease-in-out;
+  transition: transform 0.2s, opacity 0.2s, border-color 0.2s ease-in-out,
+    color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
 }
 
 * {
@@ -20,5 +22,19 @@ a {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  .h1 {
+    @apply xd:text-[40px] text-[80px] leading-[1.1] font-semibold;
+  }
+
+  .h2 {
+    @apply xd:text-[36px] text-[48px] leading-[1.1] font-semibold;
+  }
+
+  .h3 {
+    @apply xd:text-[22px] text-[26px] leading-[1.1] font-semibold;
   }
 }

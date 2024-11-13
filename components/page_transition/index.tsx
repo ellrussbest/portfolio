@@ -12,7 +12,8 @@ export default function PageTransition({
     <motion.div
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
-      transition={{ duration: 1, delay: 0.5 }}
+      transition={{ duration: 1, delay: 0.2 }}
+      className="w-full h-full"
     >
       {children}
     </motion.div>
