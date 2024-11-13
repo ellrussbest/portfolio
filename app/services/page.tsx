@@ -1,3 +1,5 @@
+import PageTransition from "@/components/page_transition";
+
 export default function Services() {
-  return <div>services</div>;
+  return <PageTransition>services</PageTransition>;
 }

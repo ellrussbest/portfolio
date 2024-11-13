@@ -1,3 +1,5 @@
+import PageTransition from "@/components/page_transition";
+
 export default function Work() {
-  return <div>work</div>;
+  return <PageTransition>work</PageTransition>;
 }

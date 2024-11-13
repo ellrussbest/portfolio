@@ -1,3 +1,5 @@
+import PageTransition from "@/components/page_transition";
+
 export default function Hire() {
-  return <div>hire</div>;
+  return <PageTransition>hire</PageTransition>;
 }

@@ -1,3 +1,5 @@
+import PageTransition from "@/components/page_transition";
+
 export default function Contact() {
-  return <div>contact</div>;
+  return <PageTransition>contact</PageTransition>;
 }

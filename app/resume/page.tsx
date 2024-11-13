@@ -1,3 +1,5 @@
+import PageTransition from "@/components/page_transition";
+
 export default function Resume() {
-  return <div>resume</div>;
+  return <PageTransition>resume</PageTransition>;
 }
