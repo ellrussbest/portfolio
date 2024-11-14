@@ -1,0 +1,62 @@
+"use client";
+
+import PageTransition from "@/components/page_transition";
+import { useEffect, useRef, useState } from "react";
+
+export default function Resume() {
+  const [ratio, set_ratio] = useState(window.innerWidth < 1080 ? 0.8 : 1.2);
+  const iframe = useRef(null);
+
+  useEffect(() => {
+    const handle_resize = () => {
+      set_ratio(window.innerWidth < 1080 ? 0.8 : 1.2);
+    };
+
+    window.addEventListener("resize", handle_resize);
+
+    return () => {
+      window.removeEventListener("resize", handle_resize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const iframeWindow = iframe.current
+
+    const css = `
+    html{
+      scrollbar-color: red green;
+    }
+    `
+
+    if(iframeWindow) {
+      const iframeDocument = iframeWindow.contentWindow.document;
+      const metaTag = iframeDocument.createElement('meta')
+      metaTag.name = "darkreader-lock";
+
+      const styleTag = iframeDocument.createElement('style')
+      styleTag.textContent = css;
+
+      iframeDocument.head.appendChild(metaTag)
+      iframeDocument.head.appendChild(styleTag)
+
+      console.log(iframeDocument.head)
+    }
+  }, []);
+
+  return (
+    <PageTransition>
+      <div className="flex justify-center h-[100vh] pt-6 bg-transparent mix-blend-difference">
+        <iframe
+          ref={iframe}
+          sandbox="allow-scripts allow-same-origin"
+          src="https://docs.google.com/document/d/e/2PACX-1vSh94CGWIAHmbORvgovc2RQHybsm7lRQKRaD2EypQHCTN_fZXABxOlig33kDb0FBqDfpF4_j-mQ88nh/pub?embedded=true"
+          width="840"
+          height="95%"
+          style={{
+            zoom: ratio,
+          }}
+        ></iframe>
+      </div>
+    </PageTransition>
+  );
+}

@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Gradient from "@/components/gradient";
-import PageTransition from "@/components/page_transition";
 
 const IBMPlexSans = localFont({
   src: "../public/fonts/IBMPlexSans-Regular.ttf",
@@ -28,14 +27,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta name="darkreader-lock"></meta>
+      <head>
+        <meta name="darkreader-lock" />
+      </head>
+
       <body
         className={`${IBMPlexSans.variable} ${InputSans.variable} bg-[url(/images/background.png)] bg-[#16171b] antialiased bg-[0px_0px] bg-[size:200px_200px] min-h-[100%] m-0 text-white leading-[1.5]`}
       >
         <Navbar />
         <main className="font-[family-name:var(--font-ibmplex-sans)] tracking-[2px] leading-loose mt-[4.5rem] xd:mt-[4rem] pl-[2.5rem] pr-[2.5rem] h-[100vh] font-normal">
           <Gradient />
-          <PageTransition>{children}</PageTransition>
+          {children}
         </main>
       </body>
     </html>

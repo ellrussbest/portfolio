@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { create } from "zustand";
 
 interface Ihambuger_state {
@@ -15,6 +14,6 @@ export const hambuger_store = create<hambuger_store_t>((set) => ({
     set((state) => ({ phoneMenuClicked: !state.phoneMenuClicked })),
 }));
 
-export default function use_hambuger_store() {
-   return hambuger_store();
+export default function useHamburgerStore() {
+  return hambuger_store();
 }

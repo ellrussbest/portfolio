@@ -7,8 +7,7 @@ export default function Gradient() {
         src="/images/orange-red-gradient-bg.png"
         alt=""
         fill={true}
-        className="max-w-full align-middle overflow-clip"
-        objectFit="cover"
+        className="max-w-full align-middle overflow-clip object-cover"
       />
     </div>
   );
