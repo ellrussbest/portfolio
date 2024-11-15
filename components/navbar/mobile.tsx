@@ -13,7 +13,7 @@ export default function MobileNav() {
   const { phoneMenuClicked, set_phone_menu_clicked } = useHamburgerStore();
   const { state, pdf_url } = useDownloadPdf();
   const anchor = useRef<HTMLAnchorElement>(null);
-  const { set_show_error_modal } = useErrorModal();
+  const { show_error_modal, set_show_error_modal } = useErrorModal();
 
   useEffect(() => {
     const handleResize = () => {
@@ -31,6 +31,7 @@ export default function MobileNav() {
   const download_pdf = () => {
     if (state === "success") anchor.current?.click();
     if (state === "error") {
+      set_phone_menu_clicked();
       set_show_error_modal(true);
       setTimeout(() => set_show_error_modal(false), 1000);
     }
@@ -47,7 +48,7 @@ export default function MobileNav() {
         onClick={() => set_phone_menu_clicked()}
       />
       <AnimatePresence>
-        {phoneMenuClicked && (
+        {phoneMenuClicked && !show_error_modal && (
           <motion.nav
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

@@ -3,6 +3,7 @@
 import useErrorModal from "@/stores/error_modal/use_error_modal";
 import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
+import ErrorModal from "../error_modal";
 
 export default function PageTransition({
   children,
@@ -11,9 +12,16 @@ export default function PageTransition({
 }) {
   const { show_error_modal } = useErrorModal();
 
+  if (show_error_modal) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
+
   return (
     <>
-      {show_error_modal && <div> Error Modal </div>}
+      {show_error_modal && <ErrorModal />}
+
       <AnimatePresence>
         <motion.div
           exit={{ opacity: 0 }}

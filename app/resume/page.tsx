@@ -1,5 +1,6 @@
 "use client";
 
+import Loader from "@/components/loader";
 import PageTransition from "@/components/page_transition";
 import { useEffect, useRef, useState } from "react";
 
@@ -27,6 +28,7 @@ const style = `
 export default function Resume() {
   const iframe = useRef<HTMLIFrameElement>(null);
   const [ratio, set_ratio] = useState(window.innerWidth < 1080 ? 0.8 : 1.2);
+  const [show_loader, set_show_loader] = useState(true);
 
   const iframeSettings = () => {
     if (iframe.current && iframe.current.contentDocument) {
@@ -48,6 +50,7 @@ export default function Resume() {
 
     const onIframeLoad = () => {
       iframeSettings();
+      set_show_loader(false);
     };
 
     if (iframeElement) {
@@ -75,6 +78,7 @@ export default function Resume() {
 
   return (
     <PageTransition>
+      {show_loader && <Loader />}
       <div className="flex justify-center h-[100vh] pt-6 bg-transparent mix-blend-soft-light">
         <iframe
           ref={iframe}
