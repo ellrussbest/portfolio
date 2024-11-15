@@ -29,13 +29,11 @@ export default function MobileNav() {
   }, [phoneMenuClicked, set_phone_menu_clicked]);
 
   const download_pdf = () => {
+    set_phone_menu_clicked();
     if (state === "success") anchor.current?.click();
     if (state === "error") {
-      set_phone_menu_clicked();
       set_show_error_modal(true);
-      setTimeout(() => set_show_error_modal(false), 1000);
     }
-    set_phone_menu_clicked();
   };
 
   return (
@@ -45,7 +43,6 @@ export default function MobileNav() {
         ref={anchor}
         download="russell_resume.pdf"
         className="hidden"
-        onClick={() => set_phone_menu_clicked()}
       />
       <AnimatePresence>
         {phoneMenuClicked && !show_error_modal && (
@@ -80,17 +77,17 @@ export default function MobileNav() {
               </Link>
               <Link
                 onClick={() => set_phone_menu_clicked()}
-                href="/work"
+                href="/projects"
                 className="hover:text-white w-auto font-normal py-3 font-[family-name:var(--font-input-sans)] mr-auto ml-auto block relative align-top"
               >
-                Work
+                Projects
               </Link>
               <Link
                 onClick={() => set_phone_menu_clicked()}
-                href="/contact"
+                href="/blogs"
                 className="hover:text-white w-auto font-normal py-3 font-[family-name:var(--font-input-sans)] mr-auto ml-auto block relative align-top"
               >
-                Contact
+                Blogs
               </Link>
             </div>
 
@@ -98,7 +95,6 @@ export default function MobileNav() {
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 onClick={() => {
-                  set_phone_menu_clicked();
                   download_pdf();
                 }}
                 className="shadow-[0_0_0_1px_rgba(255,255,255,1)] justify-center flex cursor-pointer tracking-[.04rem] text-white bg-[#0000] p-[.5rem_1.25rem_.35rem] text-[1rem] text-center font-[family-name:var(--font-input-sans)] font-normal transition ease-in-out duration-200 hover:opacity-60 rounded-[.25rem]"

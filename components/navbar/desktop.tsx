@@ -19,7 +19,6 @@ export default function DesktopNav() {
     if (state === "success") anchor.current?.click();
     if (state === "error") {
       set_show_error_modal(true);
-      setTimeout(() => set_show_error_modal(false), 1000);
     }
   };
 
@@ -54,18 +53,18 @@ export default function DesktopNav() {
           <ActionNavIndicator show={current_path == "/resume"} />
         </Link>
         <Link
-          href="/work"
+          href="/projects"
           className={`hover:text-white p-[.5rem_1rem] font-[family-name:var(--font-input-sans)] font-normal align-top text-left ml-auto mr-auto inline-block relative`}
         >
-          Work
-          <ActionNavIndicator show={current_path == "/work"} />
+          Projects
+          <ActionNavIndicator show={current_path == "/projects"} />
         </Link>
         <Link
-          href="/contact"
+          href="/blogs"
           className={`hover:text-white p-[.5rem_1rem] font-[family-name:var(--font-input-sans)] font-normal align-top text-left ml-auto mr-auto inline-block relative`}
         >
-          Contact
-          <ActionNavIndicator show={current_path == "/contact"} />
+          Blogs
+          <ActionNavIndicator show={current_path == "/blogs"} />
         </Link>
       </div>
 

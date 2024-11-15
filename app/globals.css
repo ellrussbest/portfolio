@@ -11,6 +11,16 @@ html {
 
 body.active-modal {
   overflow-y: hidden;
+  z-index: 200;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height:100%;
+}
+
+.active-modal::-webkit-scrollbar {
+  display: none;
 }
 
 a {

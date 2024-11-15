@@ -1,5 +1,169 @@
+"use client";
+
 import PageTransition from "@/components/page_transition";
+import SuccessModal from "@/components/success_modal";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+
+const info = [
+  {
+    icon: <FaPhoneAlt />,
+    title: "Phone",
+    description: "+254 746 157 232",
+  },
+  {
+    icon: <FaEnvelope />,
+    title: "Email",
+    description: "russel.odhiambo@students.ku.ac.ke",
+  },
+  {
+    icon: <FaMapMarkerAlt />,
+    title: "Address",
+    description: "Nairobi, Kenya",
+  },
+];
 
 export default function Hire() {
-  return <PageTransition>hire</PageTransition>;
+  const [success, set_success] = useState(false);
+  const [message, set_message] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  useEffect(() => {
+    if (success) {
+      setTimeout(() => set_success(false), 2000);
+      document.body.classList.add("active-modal");
+    } else {
+      document.body.classList.remove("active-modal");
+    }
+  }, [success]);
+
+  const handle_form_submit = () => {
+    console.log(message);
+  };
+
+  return (
+    <PageTransition>
+      {success && <SuccessModal />}
+
+      <div className="py-12">
+        <div className="container mx-auto">
+          <div className="flex xd:flex-col flex-row gap-[30px]">
+            <div className="w-[54%] order-none xd:order-2 xd:w-full">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handle_form_submit();
+                }}
+                className="flex flex-col gap-6 p-10 bg-[url(/images/background.png)] bg-[0_0] bg-[size:200px] bg-[#16171b] shadow-[0_0_0_1px_rgba(255,255,255,.2)] rounded-xl"
+              >
+                <h3 className="text-4xl text-[#ff4d4d]">Let's work together</h3>
+                <p className="text-white/60">
+                  If you're passionate about using your technical skills to make
+                  the world a safer, better place for everyone, I believe we
+                  could make a great team working toward that goal.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <Input
+                    type="text"
+                    placeholder="Firstname"
+                    onChange={(e) =>
+                      set_message((message) => ({
+                        ...message,
+                        firstname: e.target.value,
+                      }))
+                    }
+                  />
+                  <Input
+                    type="text"
+                    placeholder="Lastname"
+                    onChange={(e) =>
+                      set_message((message) => ({
+                        ...message,
+                        lastname: e.target.value,
+                      }))
+                    }
+                  />
+                  <Input
+                    type="email"
+                    placeholder="Email Address"
+                    onChange={(e) =>
+                      set_message((message) => ({
+                        ...message,
+                        email: e.target.value,
+                      }))
+                    }
+                  />
+                  <Input
+                    type="tel"
+                    placeholder="Phone number"
+                    onChange={(e) =>
+                      set_message((message) => ({
+                        ...message,
+                        phone: e.target.value,
+                      }))
+                    }
+                  />
+                </div>
+
+                <Textarea
+                  className="h-[150px]"
+                  placeholder="Type your message here."
+                  onChange={(e) =>
+                    set_message((message) => ({
+                      ...message,
+                      message: e.target.value,
+                    }))
+                  }
+                />
+
+                <div className="w-full flex items-center justify-center">
+                  <Button
+                    size="default"
+                    className="max-w-40 bg-[#ff4d4d] rounded-full flex gap-2 hover:bg-[#f29871]"
+                  >
+                    Send
+                    <Image
+                      src="/icons/send.png"
+                      width={20}
+                      height={20}
+                      alt=""
+                    />
+                  </Button>
+                </div>
+              </form>
+            </div>
+
+            <div className="flex-1 flex items-center justify-end xd:justify-normal order-none xd:order-1 xd:mb-8 mb-0">
+              <ul className="flex flex-col gap-10">
+                {info.map((item, idx) => {
+                  return (
+                    <li key={idx} className="flex items-center gap-6">
+                      <div className="xd:w-[52px] xd:h-[52px] w-[72px] h-[72px] bg-[url(/images/background.png)] bg-[0_0] bg-[size:200px] bg-[#16171b] text-[#ff4d4d] rounded-md flex items-center justify-center">
+                        <div className="text-[28px]">{item.icon}</div>
+                      </div>
+
+                      <div className="flex-1">
+                        <p className="text-white/60">{item.title}</p>
+                        <h3 className="text-xl">{item.description}</h3>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PageTransition>
+  );
 }

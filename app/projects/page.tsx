@@ -2,8 +2,7 @@
 
 import "swiper/css";
 import PageTransition from "@/components/page_transition";
-import { motion } from "framer-motion";
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -66,7 +65,7 @@ const projects = [
   },
 ];
 
-export default function Work() {
+export default function Projects() {
   const [project, set_project] = useState(projects[0]);
 
   const handle_slide_change = (swiper: any) => {
@@ -145,7 +144,7 @@ export default function Work() {
               <Swiper
                 spaceBetween={30}
                 slidesPerView={1}
-                className="mb-12 h-[520px]"
+                className="mb-12 h-[520px] rounded-lg"
                 onSlideChange={handle_slide_change}
               >
                 {projects.map((project, idx) => {
@@ -169,7 +168,7 @@ export default function Work() {
 
                 <SwiperButtons
                   container_styles="flex gap-2 absolute right-0 xd:bottom-[calc(50%_-_22px)] bottom-0 z-20 xd:w-full w-max xd:justify-between justify-none"
-                  btn_styles="bg-[#ff4d4d] hover:bg-[#f29871] text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
+                  btn_styles="bg-[#ff4d4d] hover:bg-[#f29871] text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all rounded"
                 />
               </Swiper>
             </div>

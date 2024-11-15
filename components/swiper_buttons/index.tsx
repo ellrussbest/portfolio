@@ -22,7 +22,7 @@ export default function SwiperButtons({
           repeat: Infinity,
           repeatDelay: 5,
           repeatType: "loop",
-          duration: 1.2,
+          duration: 1,
           ease: "easeInOut",
         },
       }}

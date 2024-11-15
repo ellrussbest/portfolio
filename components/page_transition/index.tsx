@@ -2,7 +2,7 @@
 
 import useErrorModal from "@/stores/error_modal/use_error_modal";
 import { motion, AnimatePresence } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 import ErrorModal from "../error_modal";
 
 export default function PageTransition({
@@ -10,13 +10,16 @@ export default function PageTransition({
 }: {
   children: React.ReactNode;
 }) {
-  const { show_error_modal } = useErrorModal();
+  const { show_error_modal, set_show_error_modal } = useErrorModal();
 
-  if (show_error_modal) {
-    document.body.classList.add("active-modal");
-  } else {
-    document.body.classList.remove("active-modal");
-  }
+  useEffect(() => {
+    if (show_error_modal) {
+      setTimeout(() => set_show_error_modal(false), 2000);
+      document.body.classList.add("active-modal");
+    } else {
+      document.body.classList.remove("active-modal");
+    }
+  }, [show_error_modal]);
 
   return (
     <>
