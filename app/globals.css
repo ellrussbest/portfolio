@@ -42,6 +42,10 @@ a {
     @apply xd:text-[22px] text-[26px] leading-[1.1] font-semibold;
   }
 
+  .text-outline {
+    -webkit-text-stroke: 1px #ff4d4d;
+  }
+
   .loader {
     display: block;
     position: relative;
