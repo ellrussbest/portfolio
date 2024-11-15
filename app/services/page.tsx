@@ -58,7 +58,7 @@ export default function Services() {
                   <h2 className="text-[42px] font-bold leading-none text-white">
                     {service.title}
                   </h2>
-                  <p className="text-sm leading-8">
+                  <p className="text-sm leading-8 text-white/80">
                     {service.description}
                   </p>
                   <div className="border-b border-white/20 w-full"></div>
