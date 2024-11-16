@@ -2,7 +2,7 @@
 
 import "swiper/css";
 import PageTransition from "@/components/page_transition";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,6 +15,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import SwiperButtons from "@/components/swiper_buttons";
+import { motion, px } from "framer-motion";
 
 const projects = [
   {
@@ -68,11 +69,20 @@ const projects = [
 
 export default function Projects() {
   const [project, set_project] = useState(projects[0]);
+  const swipe = useRef<HTMLDivElement>(null);
 
   const handle_slide_change = (swiper: swiper_t) => {
     const idx = swiper.realIndex;
     set_project(projects[idx]);
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (swipe.current) swipe.current.style.display = "none";
+
+      return () => clearTimeout(timer);
+    }, 3600);
+  }, []);
 
   return (
     <PageTransition>
@@ -167,6 +177,30 @@ export default function Projects() {
                     </SwiperSlide>
                   );
                 })}
+
+                <motion.div
+                  animate={{
+                    scale: [2, 2, 2, 2, 2],
+                    rotateZ: [0, -20, 0, 20, 0],
+                    transition: {
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      duration: 2,
+                    },
+                  }}
+                  ref={swipe}
+                  className="flex absolute top-1/2 left-1/2 z-[100] transform translate-x-[-50%] translate-y-[-50%]"
+                >
+                  <div className="w-[50px] h-[50px]">
+                    <Image
+                      src="/icons/swipe.svg"
+                      className="object-contain"
+                      width={50}
+                      height={50}
+                      alt=""
+                    />
+                  </div>
+                </motion.div>
 
                 <SwiperButtons
                   container_styles="flex gap-2 absolute right-0 xd:bottom-[calc(50%_-_22px)] bottom-0 z-20 xd:w-full w-max xd:justify-between justify-none"

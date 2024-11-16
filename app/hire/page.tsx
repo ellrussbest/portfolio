@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import ErrorModal from "@/components/error_modal";
 
@@ -29,6 +29,7 @@ const info = [
 ];
 
 export default function Hire() {
+  const timer = useRef<NodeJS.Timeout | null>(null);
   const [error, set_error] = useState(false);
   const [is_loading, set_is_loading] = useState(false);
   const [success, set_success] = useState(false);
@@ -42,20 +43,30 @@ export default function Hire() {
 
   useEffect(() => {
     if (success) {
-      setTimeout(() => set_success(false), 3000);
+      if (timer.current) clearTimeout(timer.current);
+      timer.current = setTimeout(() => set_success(false), 3000);
       document.body.classList.add("active-modal");
     } else {
       document.body.classList.remove("active-modal");
     }
+
+    return () => {
+      if (timer.current) clearTimeout(timer.current);
+    };
   }, [success]);
 
   useEffect(() => {
     if (error) {
-      setTimeout(() => set_error(false), 3000);
+      if (timer.current) clearTimeout(timer.current);
+      timer.current = setTimeout(() => set_error(false), 3000);
       document.body.classList.add("active-modal");
     } else {
       document.body.classList.remove("active-modal");
     }
+
+    return () => {
+      if (timer.current) clearTimeout(timer.current);
+    };
   }, [error]);
 
   const handle_form_submit = async () => {
@@ -105,7 +116,7 @@ export default function Hire() {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  handle_form_submit();
+                  if (!is_loading) handle_form_submit();
                 }}
                 className="flex flex-col gap-6 p-10 bg-[url(/images/background.png)] bg-[0_0] bg-[size:200px] bg-[#16171b] shadow-[0_0_0_1px_rgba(255,255,255,.2)] rounded-xl"
               >
@@ -193,7 +204,9 @@ export default function Hire() {
                 <div className="w-full flex items-center justify-center">
                   <Button
                     size="default"
-                    className="max-w-40 bg-[#ff4d4d] rounded-full flex gap-2 hover:bg-[#f29871]"
+                    className={`max-w-40 bg-[#ff4d4d] rounded-full flex gap-2 hover:bg-[#f29871] ${
+                      is_loading && "cursor-not-allowed"
+                    }`}
                   >
                     Send
                     {!is_loading && (
