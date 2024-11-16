@@ -117,8 +117,8 @@ export default function MobileNav() {
                   if (!download) set_download(true);
                 }}
                 className={`${
-                  download && "cursor-not-allowed"
-                } shadow-[0_0_0_1px_rgba(255,255,255,1)] justify-center flex cursor-pointer tracking-[.04rem] text-white bg-[#0000] p-[.5rem_1.25rem_.35rem] text-[1rem] text-center font-[family-name:var(--font-input-sans)] font-normal transition ease-in-out duration-200 hover:opacity-60 rounded-[.25rem]`}
+                  download ? "cursor-not-allowed" : "cursor-pointer"
+                } shadow-[0_0_0_1px_rgba(255,255,255,1)] justify-center flex tracking-[.04rem] text-white bg-[#0000] p-[.5rem_1.25rem_.35rem] text-[1rem] text-center font-[family-name:var(--font-input-sans)] font-normal transition ease-in-out duration-200 hover:opacity-60 rounded-[.25rem]`}
               >
                 Download CV
                 <span className="ml-4">

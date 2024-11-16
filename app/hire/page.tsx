@@ -205,7 +205,7 @@ export default function Hire() {
                   <Button
                     size="default"
                     className={`max-w-40 bg-[#ff4d4d] rounded-full flex gap-2 hover:bg-[#f29871] ${
-                      is_loading && "cursor-not-allowed"
+                      is_loading ? "cursor-not-allowed" : "cursor-pointer"
                     }`}
                   >
                     Send
