@@ -13,7 +13,7 @@ export default function Home() {
               <span className="text-sm">Software Developer</span>
               <h1 className="h1 mb-6">
                 I&apos;m <br />{" "}
-                <span className="text-accent bg-gradient-to-r from-[#f29871] to-[#ff4d4d] text-transparent bg-clip-text">
+                <span className="bg-gradient-to-r from-[#f29871] to-[#ff4d4d] text-transparent bg-clip-text">
                   {" "}
                   Russell Odhiambo{" "}
                 </span>

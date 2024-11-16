@@ -4,6 +4,9 @@ import Loader from "@/components/loader";
 import PageTransition from "@/components/page_transition";
 import { useEffect, useRef, useState } from "react";
 
+const url =
+  "https://docs.google.com/document/d/e/2PACX-1vSh94CGWIAHmbORvgovc2RQHybsm7lRQKRaD2EypQHCTN_fZXABxOlig33kDb0FBqDfpF4_j-mQ88nh/pub?embedded=true";
+
 const style = `
 ::-webkit-scrollbar {
   width: 5px;
@@ -76,7 +79,7 @@ export default function Resume() {
     };
 
     window.addEventListener("resize", handle_resize);
-    
+
     return () => {
       window.removeEventListener("resize", handle_resize);
     };
@@ -88,7 +91,7 @@ export default function Resume() {
       <div className="flex justify-center h-[100vh] pt-6 bg-transparent mix-blend-soft-light">
         <iframe
           ref={iframe}
-          src="/api/proxy"
+          src={`/api/proxy?url=${url}`}
           width="840"
           height="98%"
           style={{
