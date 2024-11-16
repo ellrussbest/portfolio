@@ -16,7 +16,7 @@ export default function Blogs() {
           No blog posts just yet. But stay tuned!
           <br />
           Feel free to share any topic suggestions by reaching out through the
-          Get in Touch section I'd love love to hear what interests you!
+          Get in Touch section I&apos;d love love to hear what interests you!
         </div>
       ) : (
         <div className="pt-[80px] h-full w-full flex flex-col gap-8 items-center">

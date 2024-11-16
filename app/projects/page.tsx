@@ -15,7 +15,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import SwiperButtons from "@/components/swiper_buttons";
-import { motion, px } from "framer-motion";
+import { motion } from "framer-motion";
 
 const projects = [
   {
