@@ -19,7 +19,7 @@ export default function PageTransition({
     } else {
       document.body.classList.remove("active-modal");
     }
-  }, [show_error_modal]);
+  }, [show_error_modal, set_show_error_modal]);
 
   return (
     <>

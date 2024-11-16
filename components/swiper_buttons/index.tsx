@@ -27,13 +27,23 @@ export default function SwiperButtons({
         },
       }}
     >
-      <button className={btn_styles}>
-        <PiCaretLeftBold onClick={() => swiper.slidePrev()} />
+      <button
+        className={btn_styles}
+        onClick={() => {
+          swiper.slidePrev();
+        }}
+      >
+        <PiCaretLeftBold />
       </button>
 
-      <motion.button className={btn_styles}>
-        <PiCaretRightBold onClick={() => swiper.slideNext()} />
-      </motion.button>
+      <button
+        className={btn_styles}
+        onClick={() => {
+          swiper.slideNext();
+        }}
+      >
+        <PiCaretRightBold />
+      </button>
     </motion.div>
   );
 }

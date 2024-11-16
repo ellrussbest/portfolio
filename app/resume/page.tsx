@@ -27,7 +27,7 @@ const style = `
 
 export default function Resume() {
   const iframe = useRef<HTMLIFrameElement>(null);
-  const [ratio, set_ratio] = useState(window.innerWidth < 1080 ? 0.8 : 1.2);
+  const [ratio, set_ratio] = useState(1);
   const [show_loader, set_show_loader] = useState(true);
 
   const iframeSettings = () => {
@@ -65,12 +65,18 @@ export default function Resume() {
   }, []);
 
   useEffect(() => {
+    if (window.innerWidth < 1080) {
+      set_ratio(0.8);
+    } else {
+      set_ratio(1.2);
+    }
+
     const handle_resize = () => {
       set_ratio(window.innerWidth < 1080 ? 0.8 : 1.2);
     };
 
     window.addEventListener("resize", handle_resize);
-
+    
     return () => {
       window.removeEventListener("resize", handle_resize);
     };
