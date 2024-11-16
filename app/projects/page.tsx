@@ -70,7 +70,7 @@ export default function Projects() {
   const [project, set_project] = useState(projects[0]);
 
   const handle_slide_change = (swiper: swiper_t) => {
-    const idx = swiper.activeIndex;
+    const idx = swiper.realIndex;
     set_project(projects[idx]);
   };
 
@@ -145,6 +145,7 @@ export default function Projects() {
               <Swiper
                 spaceBetween={30}
                 slidesPerView={1}
+                loop
                 className="mb-12 h-[520px] rounded-lg"
                 onSlideChange={handle_slide_change}
               >

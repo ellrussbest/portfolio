@@ -15,10 +15,18 @@ export const POST = async (req: Request) => {
   const to = process.env.EMAIL_TO;
   const subject = "Email From Personal Portfolio";
   const msg = `
-  I am ${firstname} ${lastname} and my email & phone number are ${email} and ${phone}.
+  I'm ${firstname} ${lastname},
+  <br />
+  <br />
+  Email: ${email}
+  <br />
+  Phone: ${phone}
 
-  This is my message to you:
+  <br/>
+  <h2>Message:</h2>
+  <p>
   ${message}
+  </p>
   `;
 
   try {

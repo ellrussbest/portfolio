@@ -122,6 +122,8 @@ export default function Hire() {
                   <Input
                     type="text"
                     placeholder="Firstname"
+                    minLength={3}
+                    maxLength={50}
                     value={message.firstname}
                     onChange={(e) =>
                       set_message((message) => ({
@@ -134,6 +136,8 @@ export default function Hire() {
                     type="text"
                     value={message.lastname}
                     placeholder="Lastname"
+                    minLength={3}
+                    maxLength={50}
                     onChange={(e) =>
                       set_message((message) => ({
                         ...message,
@@ -155,7 +159,9 @@ export default function Hire() {
                   <Input
                     type="tel"
                     value={message.phone}
+                    maxLength={20}
                     placeholder="Phone number"
+                    pattern="^(\+?\d{1,3})?[\s\-\(\)]?(\d{1,4})[\s\-\(\)]?(\d{1,4})[\s\-\(\)]?(\d{1,4})$"
                     onChange={(e) =>
                       set_message((message) => ({
                         ...message,
@@ -167,6 +173,8 @@ export default function Hire() {
 
                 <Textarea
                   className="h-[150px]"
+                  minLength={50}
+                  maxLength={1000}
                   value={message.message}
                   placeholder="Type your message here."
                   onChange={(e) =>
@@ -208,7 +216,9 @@ export default function Hire() {
 
                       <div className="flex-1">
                         <p className="text-white/60">{item.title}</p>
-                        <h3 className="xd:text-sm text-xl">{item.description}</h3>
+                        <h3 className="xd:text-sm text-xl">
+                          {item.description}
+                        </h3>
                       </div>
                     </li>
                   );
