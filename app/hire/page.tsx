@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import ErrorModal from "@/components/error_modal";
 
 const info = [
   {
@@ -28,6 +29,8 @@ const info = [
 ];
 
 export default function Hire() {
+  const [error, set_error] = useState(false);
+  const [is_loading, set_is_loading] = useState(false);
   const [success, set_success] = useState(false);
   const [message, set_message] = useState({
     firstname: "",
@@ -39,20 +42,61 @@ export default function Hire() {
 
   useEffect(() => {
     if (success) {
-      setTimeout(() => set_success(false), 2000);
+      setTimeout(() => set_success(false), 3000);
       document.body.classList.add("active-modal");
     } else {
       document.body.classList.remove("active-modal");
     }
   }, [success]);
 
-  const handle_form_submit = () => {
-    console.log(message);
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => set_error(false), 3000);
+      document.body.classList.add("active-modal");
+    } else {
+      document.body.classList.remove("active-modal");
+    }
+  }, [error]);
+
+  const handle_form_submit = async () => {
+    set_is_loading(true);
+
+    try {
+      const res = await fetch("/api/email", {
+        method: "POST",
+        body: JSON.stringify({
+          firstname: message.firstname,
+          lastname: message.lastname,
+          email: message.email,
+          phone: message.phone,
+          message: message.message,
+        }),
+      });
+
+      if (res.ok) {
+        set_success(true);
+        set_message((message) => ({
+          ...message,
+          firstname: "",
+          lastname: "",
+          phone: "",
+          email: "",
+          message: "",
+        }));
+      } else {
+        set_error(true);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      set_is_loading(false);
+    }
   };
 
   return (
     <PageTransition>
       {success && <SuccessModal />}
+      {error && <ErrorModal />}
 
       <div className="py-12">
         <div className="container mx-auto">
@@ -65,17 +109,20 @@ export default function Hire() {
                 }}
                 className="flex flex-col gap-6 p-10 bg-[url(/images/background.png)] bg-[0_0] bg-[size:200px] bg-[#16171b] shadow-[0_0_0_1px_rgba(255,255,255,.2)] rounded-xl"
               >
-                <h3 className="text-4xl text-[#ff4d4d]">Let's work together</h3>
+                <h3 className="text-4xl text-[#ff4d4d]">
+                  Let&apos;s work together
+                </h3>
                 <p className="text-white/60">
-                  If you're passionate about using your technical skills to make
-                  the world a safer, better place for everyone, I believe we
-                  could make a great team working toward that goal.
+                  If you&apos;re passionate about using your technical skills to
+                  make the world a safer, better place for everyone, I believe
+                  we could make a great team working toward that goal.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <Input
                     type="text"
                     placeholder="Firstname"
+                    value={message.firstname}
                     onChange={(e) =>
                       set_message((message) => ({
                         ...message,
@@ -85,6 +132,7 @@ export default function Hire() {
                   />
                   <Input
                     type="text"
+                    value={message.lastname}
                     placeholder="Lastname"
                     onChange={(e) =>
                       set_message((message) => ({
@@ -95,6 +143,7 @@ export default function Hire() {
                   />
                   <Input
                     type="email"
+                    value={message.email}
                     placeholder="Email Address"
                     onChange={(e) =>
                       set_message((message) => ({
@@ -105,6 +154,7 @@ export default function Hire() {
                   />
                   <Input
                     type="tel"
+                    value={message.phone}
                     placeholder="Phone number"
                     onChange={(e) =>
                       set_message((message) => ({
@@ -117,6 +167,7 @@ export default function Hire() {
 
                 <Textarea
                   className="h-[150px]"
+                  value={message.message}
                   placeholder="Type your message here."
                   onChange={(e) =>
                     set_message((message) => ({
@@ -132,12 +183,15 @@ export default function Hire() {
                     className="max-w-40 bg-[#ff4d4d] rounded-full flex gap-2 hover:bg-[#f29871]"
                   >
                     Send
-                    <Image
-                      src="/icons/send.png"
-                      width={20}
-                      height={20}
-                      alt=""
-                    />
+                    {!is_loading && (
+                      <Image
+                        src="/icons/send.png"
+                        width={20}
+                        height={20}
+                        alt=""
+                      />
+                    )}
+                    {is_loading && <div className="btn-loader"></div>}
                   </Button>
                 </div>
               </form>
@@ -154,7 +208,7 @@ export default function Hire() {
 
                       <div className="flex-1">
                         <p className="text-white/60">{item.title}</p>
-                        <h3 className="text-xl">{item.description}</h3>
+                        <h3 className="xd:text-sm text-xl">{item.description}</h3>
                       </div>
                     </li>
                   );

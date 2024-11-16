@@ -6,6 +6,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as swiper_t } from "swiper/types";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 import {
   Tooltip,
@@ -68,7 +69,7 @@ const projects = [
 export default function Projects() {
   const [project, set_project] = useState(projects[0]);
 
-  const handle_slide_change = (swiper: any) => {
+  const handle_slide_change = (swiper: swiper_t) => {
     const idx = swiper.activeIndex;
     set_project(projects[idx]);
   };

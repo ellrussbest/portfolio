@@ -9,6 +9,10 @@ html {
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 body.active-modal {
   overflow-y: hidden;
   z-index: 200;
@@ -16,7 +20,7 @@ body.active-modal {
   left: 0;
   top: 0;
   width: 100%;
-  height:100%;
+  height: 100%;
 }
 
 .active-modal::-webkit-scrollbar {
@@ -138,6 +142,50 @@ a {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+  }
+
+  .btn-loader {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite;
+  }
+  .btn-loader::before,
+  .loader::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    animation: prixClipFix 2s linear infinite;
+  }
+  .btn-loader::after {
+    transform: rotate3d(90, 90, 0, 180deg);
+    border-color: #ff3d00;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes prixClipFix {
+    0% {
+      clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+    }
+    50% {
+      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+    }
+    75%,
+    100% {
+      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+    }
   }
 }
 
