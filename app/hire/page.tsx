@@ -121,6 +121,7 @@ export default function Hire() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <Input
                     type="text"
+                    required
                     placeholder="Firstname"
                     minLength={3}
                     maxLength={50}
@@ -134,6 +135,7 @@ export default function Hire() {
                   />
                   <Input
                     type="text"
+                    required
                     value={message.lastname}
                     placeholder="Lastname"
                     minLength={3}
@@ -147,6 +149,7 @@ export default function Hire() {
                   />
                   <Input
                     type="email"
+                    required
                     value={message.email}
                     placeholder="Email Address"
                     onChange={(e) =>
@@ -158,6 +161,7 @@ export default function Hire() {
                   />
                   <Input
                     type="tel"
+                    required
                     value={message.phone}
                     maxLength={20}
                     placeholder="Phone number"
@@ -173,6 +177,7 @@ export default function Hire() {
 
                 <Textarea
                   className="h-[150px]"
+                  required
                   minLength={50}
                   maxLength={1000}
                   value={message.message}

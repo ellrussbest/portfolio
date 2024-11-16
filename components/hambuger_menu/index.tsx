@@ -6,7 +6,7 @@ export default function HambugerMenu() {
   return (
     <div
       className="xd:block float-right cursor-pointer text-[24px] relative"
-      onClick={() => set_phone_menu_clicked()}
+      onClick={() => set_phone_menu_clicked(!phoneMenuClicked)}
     >
       <div
         className={`w-[48px] h-[48px] flex flex-col justify-center mr-[-.5rem] pb-0 pr-0`}

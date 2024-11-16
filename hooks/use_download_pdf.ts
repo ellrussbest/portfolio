@@ -1,3 +1,4 @@
+import useIsDownloadingPDF from "@/stores/is_downloading_pdf/use_is_downloading_pdf";
 import { useEffect, useState } from "react";
 
 type state_t = "initial" | "loading" | "error" | "success";
@@ -5,6 +6,7 @@ type state_t = "initial" | "loading" | "error" | "success";
 export default function useDownloadPdf() {
   const [state, set_state] = useState<state_t>("initial");
   const [pdf_url, set_pdf_url] = useState<string>("");
+  const { download } = useIsDownloadingPDF();
 
   useEffect(() => {
     const download_pdf = async () => {
@@ -27,8 +29,8 @@ export default function useDownloadPdf() {
       }
     };
 
-    download_pdf();
-  }, []);
+    if (download) download_pdf();
+  }, [download]);
 
-  return { state, pdf_url };
+  return { state, pdf_url, set_state, set_pdf_url };
 }

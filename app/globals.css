@@ -152,7 +152,7 @@ a {
     animation: rotate 1s linear infinite;
   }
   .btn-loader::before,
-  .loader::after {
+  .btn-loader::after {
     content: "";
     box-sizing: border-box;
     position: absolute;

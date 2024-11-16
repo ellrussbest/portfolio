@@ -44,7 +44,7 @@ export default function Services() {
     <PageTransition>
       <div className="min-h-[80vh] flex flex-col justify-center xd:m-24 m-40">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px]">
+          <div className="grid xd:grid-cols-1 grid-cols-2 gap-[60px]">
             {services.map((service, index) => {
               return (
                 <div
