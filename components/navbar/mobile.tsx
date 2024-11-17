@@ -131,7 +131,7 @@ export default function MobileNav() {
                     />
                   )}
                   {download && (
-                    <div className="btn-loader after:border-[#ff4d4d]"></div>
+                    <div className="loader after:border-[#ff4d4d]"></div>
                   )}
                 </span>
               </motion.div>

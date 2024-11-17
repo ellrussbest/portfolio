@@ -105,7 +105,7 @@ export default function DesktopNav() {
               <Image priority src="/icons/download.svg" width={20} height={20} alt="" />
             )}
             {download && (
-              <div className="btn-loader after:border-[#ff4d4d]"></div>
+              <div className="loader after:border-[#ff4d4d]"></div>
             )}
           </span>
         </motion.div>

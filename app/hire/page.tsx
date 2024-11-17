@@ -217,7 +217,7 @@ export default function Hire() {
                         alt=""
                       />
                     )}
-                    {is_loading && <div className="btn-loader"></div>}
+                    {is_loading && <div className="loader"></div>}
                   </Button>
                 </div>
               </form>

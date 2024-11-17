@@ -56,13 +56,13 @@ export default function Resume() {
       set_show_loader(false);
     };
 
-    if (iframeElement) {
-      iframeElement.onload = onIframeLoad;
+    if(iframeElement) {
+      iframeElement.addEventListener("load", onIframeLoad)
     }
 
     return () => {
       if (iframeElement) {
-        iframeElement.onload = null;
+        iframeElement.removeEventListener("load", onIframeLoad);
       }
     };
   }, []);
