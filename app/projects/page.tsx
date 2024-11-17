@@ -156,7 +156,7 @@ export default function Projects() {
                 spaceBetween={30}
                 slidesPerView={1}
                 loop
-                className="mb-12 h-[520px] rounded-lg"
+                className="h-[520px] rounded-lg"
                 onSlideChange={handle_slide_change}
               >
                 {projects.map((project, idx) => {
