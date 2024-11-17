@@ -42,7 +42,7 @@ const services = [
 export default function Services() {
   return (
     <PageTransition>
-      <div className="min-h-[80%] flex flex-col justify-center xd:mt-40 xd:m-20 m-40">
+      <div className="min-h-[80vh] flex flex-col justify-center xd:mt-40 xd:m-20 m-40">
         <div className="container mx-auto">
           <div className="grid xd:grid-cols-1 grid-cols-2 gap-[60px]">
             {services.map((service, index) => {
