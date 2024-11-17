@@ -4,6 +4,7 @@ export default function Gradient() {
   return (
     <div className="z-[-1] mix-blend-hard-light inset-0 w-full h-[100%] absolute">
       <Image
+        priority
         src="/images/orange-red-gradient-bg.png"
         alt=""
         fill={true}

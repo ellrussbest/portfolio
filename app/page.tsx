@@ -28,6 +28,7 @@ export default function Home() {
                 <Link href="https://www.youtube.com/@o_russell" target="_blank">
                   <Image
                     src="/icons/youtube.svg"
+                    priority
                     width={30}
                     height={30}
                     alt=""
@@ -39,6 +40,7 @@ export default function Home() {
                 >
                   <Image
                     src="/icons/linkedin.svg"
+                    priority
                     width={30}
                     height={30}
                     alt=""
@@ -47,6 +49,7 @@ export default function Home() {
                 <Link href="https://github.com/ellrussbest" target="_blank">
                   <Image
                     src="/icons/github.svg"
+                    priority
                     width={30}
                     height={30}
                     alt=""

@@ -102,7 +102,7 @@ export default function DesktopNav() {
           Download CV
           <span className="ml-4">
             {!download && (
-              <Image src="/icons/download.svg" width={20} height={20} alt="" />
+              <Image priority src="/icons/download.svg" width={20} height={20} alt="" />
             )}
             {download && (
               <div className="btn-loader after:border-[#ff4d4d]"></div>

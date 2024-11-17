@@ -169,6 +169,7 @@ export default function Projects() {
                           <Image
                             src={project.image}
                             fill
+                            priority
                             className="object-cover"
                             alt=""
                           />
@@ -193,6 +194,7 @@ export default function Projects() {
                 >
                   <div className="w-[50px] h-[50px]">
                     <Image
+                      priority
                       src="/icons/swipe.svg"
                       className="object-contain"
                       width={50}
