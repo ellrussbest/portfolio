@@ -1,6 +1,5 @@
 "use client";
 
-import PageTransition from "@/components/page_transition";
 import { use, useRef, useState, useEffect } from "react";
 import blogs from "../blog_blog";
 import Loader from "@/components/loader";
@@ -55,7 +54,7 @@ export default function Page({
   }, []);
 
   return (
-    <PageTransition>
+    <>
       {show_loader && <Loader />}
       <div className="w-full h-full py-4">
         <iframe
@@ -65,6 +64,6 @@ export default function Page({
           height="100%"
         />
       </div>
-    </PageTransition>
+    </>
   );
 }
