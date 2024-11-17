@@ -86,19 +86,21 @@ export default function Resume() {
   }, []);
 
   return (
-    <PageTransition>
+    <>
       {show_loader && <Loader />}
-      <div className="flex justify-center h-[100vh] pt-6 bg-transparent mix-blend-soft-light">
-        <iframe
-          ref={iframe}
-          src={`/api/proxy?url=${url}`}
-          width="840"
-          height="98%"
-          style={{
-            zoom: ratio,
-          }}
-        />
-      </div>
-    </PageTransition>
+      <PageTransition>
+        <div className="flex justify-center h-[100vh] pt-6 bg-transparent mix-blend-soft-light">
+          <iframe
+            ref={iframe}
+            src={`/api/proxy?url=${url}`}
+            width="840"
+            height="98%"
+            style={{
+              zoom: ratio,
+            }}
+          />
+        </div>
+      </PageTransition>
+    </>
   );
 }

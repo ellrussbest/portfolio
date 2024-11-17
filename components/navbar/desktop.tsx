@@ -63,28 +63,28 @@ export default function DesktopNav() {
           className={`hover:text-white p-[.5rem_1rem] font-[family-name:var(--font-input-sans)] font-normal align-top text-left ml-auto mr-auto inline-block relative`}
         >
           Services
-          <ActionNavIndicator show={current_path == "/services"} />
+          <ActionNavIndicator show={current_path.includes("/services")} />
         </Link>
         <Link
           href="/resume"
           className={`hover:text-white p-[.5rem_1rem] font-[family-name:var(--font-input-sans)] font-normal align-top text-left ml-auto mr-auto inline-block relative`}
         >
           Resume
-          <ActionNavIndicator show={current_path == "/resume"} />
+          <ActionNavIndicator show={current_path.includes("/resume")} />
         </Link>
         <Link
           href="/projects"
           className={`hover:text-white p-[.5rem_1rem] font-[family-name:var(--font-input-sans)] font-normal align-top text-left ml-auto mr-auto inline-block relative`}
         >
           Projects
-          <ActionNavIndicator show={current_path == "/projects"} />
+          <ActionNavIndicator show={current_path.includes("/projects")} />
         </Link>
         <Link
           href="/blogs"
           className={`hover:text-white p-[.5rem_1rem] font-[family-name:var(--font-input-sans)] font-normal align-top text-left ml-auto mr-auto inline-block relative`}
         >
           Blogs
-          <ActionNavIndicator show={current_path == "/blogs"} />
+          <ActionNavIndicator show={current_path.includes("/blogs")} />
         </Link>
       </div>
 
@@ -102,11 +102,15 @@ export default function DesktopNav() {
           Download CV
           <span className="ml-4">
             {!download && (
-              <Image priority src="/icons/download.svg" width={20} height={20} alt="" />
+              <Image
+                priority
+                src="/icons/download.svg"
+                width={20}
+                height={20}
+                alt=""
+              />
             )}
-            {download && (
-              <div className="loader after:border-[#ff4d4d]"></div>
-            )}
+            {download && <div className="loader after:border-[#ff4d4d]"></div>}
           </span>
         </motion.div>
 
