@@ -56,8 +56,8 @@ export default function Resume() {
       set_show_loader(false);
     };
 
-    if(iframeElement) {
-      iframeElement.addEventListener("load", onIframeLoad)
+    if (iframeElement) {
+      iframeElement.addEventListener("load", onIframeLoad);
     }
 
     return () => {
@@ -88,7 +88,7 @@ export default function Resume() {
   return (
     <PageTransition>
       {show_loader && <Loader />}
-      <div className="flex justify-center h-[100vh] pt-6 bg-transparent mix-blend-soft-light">
+      <div className="flex justify-center h-[100%] pt-6 bg-transparent mix-blend-soft-light">
         <iframe
           ref={iframe}
           src={`/api/proxy?url=${url}`}
