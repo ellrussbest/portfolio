@@ -8,7 +8,7 @@ export default function Home() {
     <PageTransition>
       <section className="h-full">
         <div className="container mx-auto h-full">
-          <div className="flex flex-row xd:flex-col items-center justify-between pt-24 pb-24">
+          <div className="flex flex-row xd:flex-col items-center justify-between pt-24 xd:pt-18">
             <div className="xd:text-center text-left xd:order-2 order-none">
               <span className="text-sm">Software Developer</span>
               <h1 className="h1 mb-6">

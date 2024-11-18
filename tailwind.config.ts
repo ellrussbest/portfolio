@@ -11,11 +11,11 @@ export default {
     extend: {
       screens: {
         xd: {
-          max: "1080px",
+          max: "1079px",
         },
-        xs: {
-          max: "767px",
-        },
+        xl: {
+          min: "1080px",
+        }
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -94,7 +94,7 @@ export default function Resume() {
             ref={iframe}
             src={`/api/proxy?url=${url}`}
             width="840"
-            height="98%"
+            height="100%"
             style={{
               zoom: ratio,
             }}

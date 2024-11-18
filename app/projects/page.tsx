@@ -86,7 +86,7 @@ export default function Projects() {
 
   return (
     <PageTransition>
-      <div className="min-h-[80vh] flex flex-col justify-center xd:py-12 py-24 xd:px-0">
+      <div className="min-h-[80vh] flex flex-col justify-center xl:pt-24 pt-6">
         <div className="container mx-auto">
           <div className="flex xd:flex-col flex-row xd:gap-0 gap-[30px]">
             <div className="xd:w-full w-[50%] flex flex-col justify-between xd:order-2 order-none">

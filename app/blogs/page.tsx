@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 export default function Blogs() {
   const router = useRouter();
-  const blog_keys = Object.keys(blogs);
+  const blog_keys = Object.keys(blogs).sort();
 
   return (
     <PageTransition>

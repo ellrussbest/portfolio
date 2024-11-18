@@ -109,7 +109,7 @@ export default function Hire() {
       {success && <SuccessModal />}
       {error && <ErrorModal />}
 
-      <div className="py-12">
+      <div className="pt-12">
         <div className="container mx-auto">
           <div className="flex xd:flex-col flex-row gap-[30px]">
             <div className="w-[54%] order-none xd:order-2 xd:w-full">

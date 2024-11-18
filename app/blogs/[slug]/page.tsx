@@ -56,7 +56,7 @@ export default function Page({
   return (
     <>
       {show_loader && <Loader />}
-      <div className="w-full h-full py-4">
+      <div className="w-full h-screen py-4">
         <iframe
           ref={iframe}
           src={`/api/proxy?url=${blogs[slug].url}`}

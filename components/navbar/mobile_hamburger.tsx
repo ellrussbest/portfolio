@@ -10,7 +10,7 @@ import useDownloadPdf from "@/hooks/use_download_pdf";
 import useErrorModal from "@/stores/error_modal/use_error_modal";
 import useIsDownloadingPDF from "@/stores/is_downloading_pdf/use_is_downloading_pdf";
 
-export default function MobileNav() {
+export default function MobileHamburgerMenu() {
   const { phoneMenuClicked, set_phone_menu_clicked } = useHamburgerStore();
   const anchor = useRef<HTMLAnchorElement>(null);
   const { show_error_modal, set_show_error_modal } = useErrorModal();
