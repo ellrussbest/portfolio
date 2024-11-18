@@ -89,7 +89,7 @@ export default function Resume() {
     <>
       {show_loader && <Loader />}
       <PageTransition>
-        <div className="flex justify-center h-[100vh] pt-6 bg-transparent mix-blend-soft-light">
+        <div className="flex justify-center h-[100vh] pt-6 bg-transparent">
           <iframe
             ref={iframe}
             src={`/api/proxy?url=${url}`}
