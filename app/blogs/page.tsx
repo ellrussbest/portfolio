@@ -3,10 +3,9 @@
 import PageTransition from "@/components/page_transition";
 import blogs from "./blog_blog";
 import BlogCard from "@/components/blog_card";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Blogs() {
-  const router = useRouter();
   const blog_keys = Object.keys(blogs).sort();
 
   return (
@@ -21,12 +20,18 @@ export default function Blogs() {
       ) : (
         <div className="pt-[80px] h-full w-full flex flex-col gap-8 items-center">
           {blog_keys.map((val, idx) => (
-            <BlogCard
+            <Link
+              href={`/blogs/${val}`}
               key={idx}
-              blogNumber={val}
-              description={blogs[val]["description"]}
-              onClick={() => router.push(`/blogs/${val}`)}
-            />
+              passHref
+              className="w-full h-full flex flex-col items-center"
+            >
+              <BlogCard
+                key={idx}
+                blogNumber={val}
+                description={blogs[val]["description"]}
+              />
+            </Link>
           ))}
         </div>
       )}

@@ -1,20 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MouseEventHandler } from "react";
 
 export default function BlogCard({
   blogNumber,
-  description,
-  onClick,
+  description
 }: {
   blogNumber: string;
   description: string;
-  onClick: MouseEventHandler<HTMLDivElement>;
 }) {
   return (
     <motion.div
-      onClick={onClick}
       whileHover={{
         scale: 1.02,
         transition: {
