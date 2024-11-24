@@ -11,7 +11,7 @@ export default function Blogs() {
   return (
     <PageTransition>
       {blog_keys.length == 0 ? (
-        <div className="w-full h-[90%] flex justify-center items-center flex-wrap text-center">
+        <div className="w-full h-[90vh] flex justify-center items-center flex-wrap text-center">
           No blog posts just yet. But stay tuned!
           <br />
           Feel free to share any topic suggestions by reaching out through the
