@@ -49,25 +49,6 @@ export default function Resume() {
   };
 
   useEffect(() => {
-    const iframeElement = iframe.current;
-
-    const onIframeLoad = () => {
-      iframeSettings();
-      set_show_loader(false);
-    };
-
-    if (iframeElement) {
-      iframeElement.addEventListener("load", onIframeLoad);
-    }
-
-    return () => {
-      if (iframeElement) {
-        iframeElement.removeEventListener("load", onIframeLoad);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
     if (window.innerWidth < 1080) {
       set_ratio(0.8);
     } else {
@@ -98,6 +79,11 @@ export default function Resume() {
             style={{
               zoom: ratio,
             }}
+            onLoad={() => {
+              iframeSettings();
+              set_show_loader(false);
+            }}
+            className={`${show_loader && "hidden"}`}
           />
         </div>
       </PageTransition>

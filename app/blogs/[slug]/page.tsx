@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useRef, useState, useEffect } from "react";
+import { use, useRef, useState } from "react";
 import blogs from "../blog_blog";
 import Loader from "@/components/loader";
 
@@ -34,25 +34,6 @@ export default function Page({
     }
   };
 
-  useEffect(() => {
-    const iframeElement = iframe.current;
-
-    const onIframeLoad = () => {
-      iframeSettings();
-      set_show_loader(false);
-    };
-
-    if (iframeElement) {
-      iframeElement.onload = onIframeLoad;
-    }
-
-    return () => {
-      if (iframeElement) {
-        iframeElement.onload = null;
-      }
-    };
-  }, []);
-
   return (
     <>
       {show_loader && <Loader />}
@@ -62,6 +43,11 @@ export default function Page({
           src={`/api/proxy?url=${blogs[slug].url}`}
           width="100%"
           height="100%"
+          onLoad={() => {
+            iframeSettings();
+            set_show_loader(false);
+          }}
+          className={`${show_loader && "hidden"}`}
         />
       </div>
     </>
