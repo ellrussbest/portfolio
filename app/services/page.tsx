@@ -49,7 +49,7 @@ export default function Services() {
               return (
                 <div
                   key={index}
-                  className="flex flex-1 flex-col justify-center gap-6 group"
+                  className="flex flex-1 flex-col justify-between gap-6 group"
                 >
                   <div className="text-5xl font-extrabold text-outline text-transparent">
                     {service.num}
