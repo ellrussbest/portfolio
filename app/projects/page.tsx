@@ -170,7 +170,7 @@ export default function Projects() {
                             src={project.image}
                             fill
                             priority
-                            className="object-cover"
+                            className="object-fill"
                             alt=""
                           />
                         </div>
