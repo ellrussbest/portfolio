@@ -25,7 +25,7 @@ export default function Home() {
 
               <div className="flex items-center gap-6 xd:justify-center">
                 <span className="text-xs">Let&apos;s Connect: </span>
-                <Link href="https://www.youtube.com/@o_russell" target="_blank">
+                <Link href="https://www.youtube.com/@looping_code" target="_blank">
                   <Image
                     src="/icons/youtube.svg"
                     priority

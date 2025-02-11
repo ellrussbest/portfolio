@@ -20,6 +20,24 @@ import { motion } from "framer-motion";
 const projects = [
   {
     num: "01",
+    category: "Robotics",
+    title: "Ros2 Manipulators",
+    description: "Simulation of 3-dof robot",
+    stack: [
+      { name: "ROS2" },
+      { name: "C++" },
+      { name: "CMake" },
+      { name: "Python" },
+      { name: "XML" },
+      { name: "Gazebo" },
+      { name: "Rviz2" },
+      { name: "MoveIt2" },
+    ],
+    image: "/images/ros2_manipulators.gif",
+    github: "https://github.com/ellrussbest/ros2_manipulators",
+  },
+  {
+    num: "02",
     category: "FullStack",
     title: "Notebook",
     description: "An online JavaScript & ReactJs IDE & Compiler.",
@@ -34,7 +52,7 @@ const projects = [
     github: "https://github.com/ellrussbest/notebook",
   },
   {
-    num: "02",
+    num: "03",
     category: "FullStack",
     title: "Web3 Marketplace",
     description: "An online web3 marketplace powered by Ethereum.",
@@ -49,7 +67,7 @@ const projects = [
     github: "https://github.com/ellrussbest/marketplace-eth",
   },
   {
-    num: "03",
+    num: "04",
     category: "Blockchain",
     title: "Blockchain Network",
     description:
@@ -170,7 +188,7 @@ export default function Projects() {
                             src={project.image}
                             fill
                             priority
-                            className="object-fill"
+                            className="object-fit"
                             alt=""
                           />
                         </div>
