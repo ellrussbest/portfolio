@@ -20,6 +20,20 @@ import { motion } from "framer-motion";
 const projects = [
   {
     num: "01",
+    category: "SaaS",
+    title: "Amarom Edge",
+    description: "All in one HRIS software",
+    stack: [
+      { name: "NextJs" },
+      { name: "C++" },
+      { name: "Supabase" },
+      { name: "Postgreql" },
+    ],
+    image: "/images/amarom.png",
+    live: "https://amarom.vercel.app/",
+  },
+  {
+    num: "02",
     category: "Robotics",
     title: "Ros2 Manipulators",
     description: "Simulation of 3-dof robot",
@@ -37,7 +51,7 @@ const projects = [
     github: "https://github.com/ellrussbest/ros2_manipulators",
   },
   {
-    num: "02",
+    num: "03",
     category: "FullStack",
     title: "Notebook",
     description: "An online JavaScript & ReactJs IDE & Compiler.",
@@ -52,7 +66,7 @@ const projects = [
     github: "https://github.com/ellrussbest/notebook",
   },
   {
-    num: "03",
+    num: "04",
     category: "FullStack",
     title: "Web3 Marketplace",
     description: "An online web3 marketplace powered by Ethereum.",
@@ -67,7 +81,7 @@ const projects = [
     github: "https://github.com/ellrussbest/marketplace-eth",
   },
   {
-    num: "04",
+    num: "05",
     category: "Blockchain",
     title: "Blockchain Network",
     description:
@@ -152,19 +166,21 @@ export default function Projects() {
                     </Link>
                   )}
 
-                  <Link href={project.github} target="_blank">
-                    <TooltipProvider delayDuration={100}>
-                      <Tooltip>
-                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full flex bg-white/5 justify-center items-center group">
-                          <BsGithub className="text-white text-3xl group-hover:text-[#ff4d4d]" />
-                        </TooltipTrigger>
+                  {project.github && (
+                    <Link href={project.github} target="_blank">
+                      <TooltipProvider delayDuration={100}>
+                        <Tooltip>
+                          <TooltipTrigger className="w-[70px] h-[70px] rounded-full flex bg-white/5 justify-center items-center group">
+                            <BsGithub className="text-white text-3xl group-hover:text-[#ff4d4d]" />
+                          </TooltipTrigger>
 
-                        <TooltipContent>
-                          <p>Github Repository</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  </Link>
+                          <TooltipContent>
+                            <p>Github Repository</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
