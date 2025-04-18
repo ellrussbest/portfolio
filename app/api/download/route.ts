@@ -1,7 +1,8 @@
 export const GET = async () => {
   try {
     const res = await fetch(
-      "https://docs.google.com/document/d/1t6OxbuX1qpG0M7R7oFycHJ9dSXeYcwjL8fqhX6FxRQ8/export?format=pdf"
+      // "https://docs.google.com/document/d/1t6OxbuX1qpG0M7R7oFycHJ9dSXeYcwjL8fqhX6FxRQ8/export?format=pdf"
+      "https://drive.google.com/uc?export=download&id=1JwpcA6R6GMDsD64z5TV2SxRgOEEctbI_"
     );
 
     if (res.ok) {

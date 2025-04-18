@@ -4,8 +4,10 @@ import Loader from "@/components/loader";
 import PageTransition from "@/components/page_transition";
 import { useEffect, useRef, useState } from "react";
 
+// const url =
+//   "https://docs.google.com/document/d/e/2PACX-1vSh94CGWIAHmbORvgovc2RQHybsm7lRQKRaD2EypQHCTN_fZXABxOlig33kDb0FBqDfpF4_j-mQ88nh/pub?embedded=true";
 const url =
-  "https://docs.google.com/document/d/e/2PACX-1vSh94CGWIAHmbORvgovc2RQHybsm7lRQKRaD2EypQHCTN_fZXABxOlig33kDb0FBqDfpF4_j-mQ88nh/pub?embedded=true";
+  "https://drive.google.com/file/d/1JwpcA6R6GMDsD64z5TV2SxRgOEEctbI_/preview";
 
 const style = `
 ::-webkit-scrollbar {
@@ -73,7 +75,8 @@ export default function Resume() {
         <div className="flex justify-center h-[100vh] pt-6 bg-transparent">
           <iframe
             ref={iframe}
-            src={`/api/proxy?url=${url}`}
+            // src={`/api/proxy?url=${url}`}
+            src={url}
             width="840"
             height="100%"
             style={{

@@ -60,7 +60,7 @@ export default function MobileHamburgerMenu() {
       <a
         href={pdf_url}
         ref={anchor}
-        download="russell_resume.pdf"
+        download="RussellOdhiamboResume.pdf"
         className="hidden"
       />
       <AnimatePresence>
